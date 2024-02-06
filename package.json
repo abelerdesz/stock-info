@@ -20,5 +20,10 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.1.0"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": true
   }
 }
