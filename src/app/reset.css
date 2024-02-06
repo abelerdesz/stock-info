@@ -1,0 +1,12 @@
+html,
+body,
+.radix-themes {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.radix-themes {
+  display: flex;
+  flex-direction: column;
+}

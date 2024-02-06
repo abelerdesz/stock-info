@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import './reset.css'
+import '@radix-ui/themes/styles.css'
+import { Theme } from '@radix-ui/themes'
+import { PageHeader } from '@/components/Header'
 
 export const metadata: Metadata = {
   title: 'Stock Info',
@@ -15,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <Theme accentColor="brown">
+          <PageHeader />
+          {children}
+        </Theme>
+      </body>
     </html>
   )
 }
