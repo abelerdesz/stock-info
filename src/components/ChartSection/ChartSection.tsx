@@ -2,10 +2,10 @@
 
 import { AspectRatio, Box, Card, Flex } from '@radix-ui/themes'
 import { Chart } from '@/components/Chart'
-import { QueryStatsIcon } from '@/components/Icon/QueryStatsIcon'
+import { QueryStatsIcon } from '@/components/Icon'
 import { useSymbolHistory } from '@/hooks/useSymbolHistory'
+import { type SymbolSearchResponse } from '@/types/SymbolSearchResponse'
 import styles from './chartSection.module.css'
-import { SymbolSearchResponse } from '@/types/SymbolSearchResponse'
 
 interface Props {
   searchResult: SymbolSearchResponse | null

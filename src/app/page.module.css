@@ -6,35 +6,3 @@
   overflow: hidden;
   border-radius: var(--radius-5);
 }
-
-.figures {
-  background: var(--sand-3);
-
-  &.empty {
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-.separator {
-  background: var(--brown-2);
-}
-
-.skeleton {
-  background-image: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0)
-  );
-  background-size: 25% 100%;
-  background-repeat: no-repeat;
-  background-position: left -40px top 0;
-  animation: shine 1s ease infinite;
-}
-
-@keyframes shine {
-  to {
-    background-position: right -40px top 0;
-  }
-}

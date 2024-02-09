@@ -1,0 +1,1 @@
+export { QueryStatsIcon } from './QueryStatsIcon'

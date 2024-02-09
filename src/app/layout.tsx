@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import '@radix-ui/themes/styles.css'
-import './reset.css'
 import { Theme } from '@radix-ui/themes'
 import { PageHeader } from '@/components/Header'
+import '@radix-ui/themes/styles.css'
+import './reset.css'
 
 export const metadata: Metadata = {
   title: 'Stock Info',
