@@ -1,4 +1,4 @@
-import { FinnhubService } from '@/services/FinnhubService'
+import { AlphaVantageService } from '@/services/AlphaVantageService'
 import { type NextRequest } from 'next/server'
 
 export const GET = async (request: NextRequest) => {
@@ -6,11 +6,11 @@ export const GET = async (request: NextRequest) => {
 
   if (symbolQuery?.length) {
     try {
-      const searchResult = await FinnhubService.searchSymbol(
+      const history = await AlphaVantageService.getHistoryForSymbol(
         decodeURIComponent(symbolQuery)
       )
 
-      return Response.json(searchResult)
+      return Response.json(history)
     } catch (e) {
       return Response.json({ error: 'Internal Server Error' }, { status: 500 })
     }
