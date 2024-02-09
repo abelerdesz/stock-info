@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import './reset.css'
 import '@radix-ui/themes/styles.css'
+import './reset.css'
 import { Theme } from '@radix-ui/themes'
 import { PageHeader } from '@/components/Header'
 

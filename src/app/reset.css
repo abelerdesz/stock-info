@@ -9,4 +9,7 @@ body,
 .radix-themes {
   display: flex;
   flex-direction: column;
+
+  --cursor-button: pointer;
+  --cursor-menu-item: pointer;
 }
