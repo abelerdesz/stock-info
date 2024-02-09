@@ -1,12 +1,12 @@
 'use client'
 
+import { FormEventHandler, useState } from 'react'
 import {
   AspectRatio,
   Badge,
   Box,
   Button,
   Callout,
-  Card,
   Container,
   Flex,
   Grid,
@@ -15,33 +15,24 @@ import {
   Text,
   TextField,
 } from '@radix-ui/themes'
-import styles from './page.module.css'
-import { FormEventHandler, useState } from 'react'
 import {
-  BarChartIcon,
   ExclamationTriangleIcon,
   InfoCircledIcon,
   MagnifyingGlassIcon,
 } from '@radix-ui/react-icons'
-import { QueryStatsIcon } from '@/components/Icon/QueryStatsIcon'
+import { ChartSection } from '@/components/ChartSection'
 import { useSymbolSearch } from '@/hooks/useSymbolSearch'
-import { useSymbolHistory } from '@/hooks/useSymbolHistory'
-import { Chart } from '@/components/Chart'
+import styles from './page.module.css'
 
 const Home = () => {
   const [symbol, setSymbol] = useState('')
   const { submitSearch, result, isLoading, hasError } = useSymbolSearch()
-  const { count: resultCount, allResults, exactMatch } = result || {}
-  const { history } = useSymbolHistory(exactMatch?.symbol, isLoading)
-
-  console.log('history', history)
+  const { allResults, exactMatch } = result || {}
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
     submitSearch(symbol)
   }
-
-  console.log('allResults', allResults)
 
   return (
     <Flex asChild className={styles.appMain} grow="1" py="8">
@@ -197,7 +188,6 @@ const Home = () => {
                           <Button
                             size="1"
                             key={result.symbol}
-                            // color="indigo"
                             variant="soft"
                             onClick={() => {
                               setSymbol(result.symbol)
@@ -218,30 +208,7 @@ const Home = () => {
                 />
               </section>
             </Flex>
-            <Flex asChild>
-              <section>
-                <AspectRatio ratio={1 / 1}>
-                  <Box className={styles.chart} p="3">
-                    {!history.length && (
-                      <QueryStatsIcon
-                        width={120}
-                        height={120}
-                        className={styles.chartIcon}
-                      />
-                    )}
-                    {!!history.length && (
-                      <Card
-                        size="2"
-                        variant="surface"
-                        className={styles.chartCard}
-                      >
-                        <Chart data={history} />
-                      </Card>
-                    )}
-                  </Box>
-                </AspectRatio>
-              </section>
-            </Flex>
+            <ChartSection searchResult={result} isSymbolLoading={isLoading} />
           </Grid>
         </Container>
       </main>
