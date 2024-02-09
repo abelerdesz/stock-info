@@ -5,4 +5,5 @@ export interface FinnhubQuoteResponse {
   o: number
   pc: number
   t: number
+  d: number
 }

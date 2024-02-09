@@ -1,6 +1,12 @@
 import { FinnhubQuoteResponse } from './FinnhubQuoteResponse'
-import { FinnhubSymbolSearchResponse } from './FinnhubSymbolSearchResponse'
+import { FinnhubSymbolSearchResult } from './FinnhubSymbolSearchResponse'
 
-export interface SymbolSearchResponse extends FinnhubSymbolSearchResponse {
-  quote?: FinnhubQuoteResponse
+export interface SymbolSearchResponse {
+  count: number
+  allResults: FinnhubSymbolSearchResult[]
+  exactMatch:
+    | (FinnhubSymbolSearchResult & {
+        quote: FinnhubQuoteResponse
+      })
+    | null
 }
